@@ -66,4 +66,5 @@
     </div>
     
 </body>
+<script src="src/js/script.js"></script>
 </html>

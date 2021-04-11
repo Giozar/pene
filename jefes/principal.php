@@ -18,7 +18,12 @@
     ?>
     <h3>
         <?php
-            echo "hola {$_SESSION['usuario']}<br>";
+            echo "! Hola {$_SESSION['usuario']}!<br>";
+            //si la cookie esta creada o aactiva
+            if (isset($_COOKIE['nombre_usuario'])) {
+                //muetra nuestro nombre con el parametro nombre_usuario
+                echo '¡ Hola '.$_COOKIE['nombre_usuario'].' !';
+            }
         ?>
     </h3>
     <h1>Hola bienvenido usuario a Labs</h1>
