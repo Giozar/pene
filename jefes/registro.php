@@ -1,14 +1,14 @@
 <?php
     $jefe = [
             $_POST['id'], 
-            $_POST['nomJ'],
-            $_POST['apepJ'],
-            $_POST['apemJ'],
-            $_POST['areaJ'],
-            $_POST['tipoJ'],
-            $_POST['correoJ'],
-            $_POST['contraJ']
-            //password_hash($_POST['contraJ'],PASSWORD_DEFAULT, array('cost'=>12)) <------contraseña con hash(contra encriptada)
+            $_POST['nom'],
+            $_POST['apep'],
+            $_POST['apem'],
+            $_POST['area'],
+            $_POST['tipo'],
+            $_POST['correo'],
+            $_POST['contra']
+            //password_hash($_POST['contra'],PASSWORD_DEFAULT, array('cost'=>12)) <------contraseña con hash(contra encriptada)
         ];
     
     echo '<a href="formulario_registro.php">Regresar</a> <br>'; 
@@ -30,16 +30,16 @@
 
         function registra_datos($resultado, $base, $jefe){
             $registra = 'INSERT INTO jefes (id, nombre, apellido_paterno, apellido_materno, area_encargado, tipo_jefe, correo, contrasena) 
-            VALUES (:id,:nomJ,:apepJ,:apemJ,:areaJ,:tipoJ,:correoJ,:contraJ)';
+            VALUES (:id,:nom,:apep,:apem,:area,:tipo,:correo,:contra)';
             $resultado = $base->prepare($registra);
             $resultado->execute(array(':id'=>$jefe[0],
-            ':nomJ'=>$jefe[1],
-            ':apepJ'=>$jefe[2],
-            ':apemJ'=>$jefe[3],
-            ':areaJ'=>$jefe[4],
-            ':tipoJ'=>$jefe[5],
-            ':correoJ'=>$jefe[6],
-            ':contraJ'=>$jefe[7]
+            ':nom'=>$jefe[1],
+            ':apep'=>$jefe[2],
+            ':apem'=>$jefe[3],
+            ':area'=>$jefe[4],
+            ':tipo'=>$jefe[5],
+            ':correo'=>$jefe[6],
+            ':contra'=>$jefe[7]
             ));
             echo 'registro guardado';
         }
@@ -48,11 +48,11 @@
         require("../conexion/conexion.php");
 
         $busqueda = "SELECT nombre, apellido_paterno, apellido_materno, area_encargado, tipo_jefe, correo, contrasena FROM jefes 
-        WHERE  nombre = :nomJ AND apellido_paterno = :apepJ AND apellido_materno = :apemJ AND area_encargado = :areaJ AND tipo_jefe = :tipoJ AND correo = :correoJ AND contrasena = :contraJ";
+        WHERE  nombre = :nom AND apellido_paterno = :apep AND apellido_materno = :apem AND area_encargado = :area AND tipo_jefe = :tipo AND correo = :correo AND contrasena = :contra";
         
         $resultado = $base->prepare($busqueda);
         
-        $resultado->execute(array(':nomJ'=>$jefe[1],':apepJ'=>$jefe[2],':apemJ'=>$jefe[3],':areaJ'=>$jefe[4],':tipoJ'=>$jefe[5],':correoJ'=>$jefe[6],':contraJ'=>$jefe[7]));
+        $resultado->execute(array(':nom'=>$jefe[1],':apep'=>$jefe[2],':apem'=>$jefe[3],':area'=>$jefe[4],':tipo'=>$jefe[5],':correo'=>$jefe[6],':contra'=>$jefe[7]));
         
         if ( $resultado->rowCount()>0 ) {
             

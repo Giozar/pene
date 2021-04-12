@@ -10,7 +10,7 @@
 
     //variable que auntentifica si el usuario entra o inicia sesión// al principio es falso
     $autenticar = false;
-    $nombre;//<----variable nueva creada
+    $nombre; $tipo_jefe;//<----variables nuevas creadas
 
     //se se mandoa el formulario hace lo siguiente
         if (isset($_POST['btn'])) {
@@ -23,8 +23,8 @@
                 //adquiere el nombre en entidat html con barras invertidas
                 //$login adquiere el nombre del usuario
                 //pasword adquiere la contraseña ingresada
-                $login=htmlentities(addslashes($_POST['nombre']));
-                $password=htmlentities(addslashes($_POST['pass']));
+                $login=htmlentities(addslashes($_POST['id']));
+                $password=htmlentities(addslashes($_POST['contra']));
                 //se busca en la tabla el valor y los compara para verificar que ya esta registrado y si son iguales 
                 $resultado->bindValue(':login',$login);
                 $resultado->bindValue(':password',$password);
@@ -39,9 +39,11 @@
                     session_start();
                     //se guarda el nombre del usuario
                     while ($datos = $resultado->fetch(PDO::FETCH_ASSOC)) { 
-                        $nombre = $datos['nombre']; 
+                        $nombre = $datos['nombre'];
+                        $tipo_jefe = $datos['tipo_jefe']; 
                     }
                     $_SESSION['usuario'] = $nombre;
+                    $_SESSION['tipo_jefe'] = $tipo_jefe;
 
                     //autentifica que el usuario inicie sesion y es verdadero
                     $autenticar = true;

@@ -1,8 +1,8 @@
-const nom = document.querySelector('#nomJ');
-const apeP = document.querySelector('#apepJ');
-const apeM = document.querySelector('#apemJ');
-const area = document.querySelector('#areaJ');
-const tipo = document.querySelector('#tipoJ');
+const nom = document.querySelector('#nom');
+const apeP = document.querySelector('#apep');
+const apeM = document.querySelector('#apem');
+const area = document.querySelector('#area');
+const tipo = document.querySelector('#tipo');
 
 //funcion de cambio de minusculas a mayusculas
 

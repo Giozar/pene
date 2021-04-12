@@ -8,30 +8,67 @@
 </head>
 <body>
     <?php
-    //idica que el usuario inicio sesion
-    session_start();
-    //si el usuario no se encontro
-    if (!isset($_SESSION['usuario'])) {
-        //lo redirecciona a iniciar sesion
-        header('Location:login.php');
-    } 
-    ?>
-    <h3>
-        <?php
-            echo "! Hola {$_SESSION['usuario']}!<br>";
-            //si la cookie esta creada o aactiva
-            if (isset($_COOKIE['nombre_usuario'])) {
-                //muetra nuestro nombre con el parametro nombre_usuario
-                echo '¡ Hola '.$_COOKIE['nombre_usuario'].' !';
-            }
+        //indica que el usuario inicio sesion
+        session_start();
+        //si el usuario no se encontro
+        if (!isset($_SESSION['usuario']) && !isset($_SESSION['tipo_jefe']) ) {
+            //lo redirecciona a iniciar sesion
+            header('Location:login.php');
+        } 
         ?>
-    </h3>
-    <h1>Hola bienvenido usuario a Labs</h1>
 
-    <tr>
-        <!-- link a pagina de cerra sesion -->
-        <th colspan="3"><a href="cerrar_sesion.php">Cerrar sesion</a></th>
-    </tr>
+    <header>
+        <h3>
+            <?php
+                echo "! Hola {$_SESSION['usuario']}!<br>";
+                //si la cookie esta creada o aactiva
+                if (isset($_COOKIE['nombre_usuario'])) {
+                    //muetra nuestro nombre con el parametro nombre_usuario
+                    echo '¡ Hola '.$_COOKIE['nombre_usuario'].' !';
+                }
+            ?>
+        </h3>
+        
+        <tr>
+            <!-- link a pagina de cerra sesion -->
+            <th colspan="3"><a href="cerrar_sesion.php">Cerrar sesion</a></th>
+        </tr>
+    
+        <nav>
+            <ul>
+                <li>
+                    <p>Control de usuarios</p>
+                </li>
+                <li>
+                    <p>Zonas</p>
+                </li>
+                <li>
+                    <p>General</p>
+                </li>
+                <li>
+                    <a href="control_empleado/formulario_empleado.php">Registro de empleados</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <section>
+        <h1>Hola Labs</h1>
+
+    </section>
+
+    <footer>
+        <p>Acerca de nosotros</p>
+    </footer>
+
+
+    
+    
+
+
+
+    
 
 </body>
 </html>
