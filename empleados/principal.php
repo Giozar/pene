@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Principal empleado</title>
 </head>
 <body>
     <?php
         //indica que el usuario inicio sesion
         session_start();
         //si el usuario no se encontro
-        if (!isset($_SESSION['usuario'])) {
+        if (!isset($_SESSION['usuario']) && !isset($_SESSION['tipo_empleado'])) {
             //lo redirecciona a iniciar sesion
-            header('Location:login.php');
+            header('Location:formulario_login.html');
         } 
-        ?>
+    ?>
 
     <header>
         <h3>
@@ -42,6 +42,7 @@
 
                 <li>
                     <p>Control de usuarios</p>
+                    <a href="control_paciente/formulario_paciente.php">Registrar paciente</a>
                 </li>
 
                 <li>
@@ -50,10 +51,6 @@
 
                 <li>
                     <p>Mandar Resultados</p>
-                </li>
-                
-                <li>
-                    <a href="control_empleado/formulario_empleado.php">Registro de empleados</a>
                 </li>
             </ul>
 

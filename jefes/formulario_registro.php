@@ -14,7 +14,18 @@
                 Registro de jefes
             </h3>
         </div>
-        <a href="login.php">Iniciar sesion</a> <br><br>
+        <?php
+            //se llama al metodo sesion
+            session_start();
+            // si no existe una sesion inicada de un jefe
+            if (!isset($_SESSION['usuario']) && !isset($_SESSION['tipo_jefe']) ) {
+                //lo redirecciona a iniciar sesion
+                header('Location:formulario_login.html');
+            }else{
+                echo '<a href="principal.php">Regresar</a> <br>'; 
+                
+            }
+        ?>
     </header>
 
     <div>
@@ -66,5 +77,5 @@
     </div>
     
 </body>
-<script src="src/js/script.js"></script>
+<script src="../src/js/script.js"></script>
 </html>

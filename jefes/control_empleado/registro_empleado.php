@@ -1,10 +1,10 @@
 <?php
-        //indica que el usuario inicio sesion
+        //se llama al metodo sesion
         session_start();
         //si el usuario no se encontro
         if (!isset($_SESSION['usuario']) && !isset($_SESSION['tipo_jefe'])) {
             //lo redirecciona a iniciar sesion
-            header('Location:login.php');
+            header('Location:../formulario_login.html');
         }
 ?>
 <?php

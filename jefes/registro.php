@@ -1,4 +1,14 @@
 <?php
+//se llama al metodo sesion
+session_start();
+echo '<a href="formulario_registro.php">Regresar</a> <br>'; 
+// si no hay una sesion iniciada de un jefe
+if (!isset($_SESSION['usuario']) && !isset($_SESSION['tipo_jefe']) ) {
+    //lo redirecciona a iniciar sesion
+    echo '<a href="formulario_login.html">Iniciar sesion</a> <br>'; 
+}else{
+    echo '<a href="principal.php">Principal</a> <br>'; 
+}
     $jefe = [
             $_POST['id'], 
             $_POST['nom'],
@@ -11,8 +21,6 @@
             //password_hash($_POST['contra'],PASSWORD_DEFAULT, array('cost'=>12)) <------contraseña con hash(contra encriptada)
         ];
     
-    echo '<a href="formulario_registro.php">Regresar</a> <br>'; 
-    echo '<a href="login.php">Iniciar sesion</a> <br>'; 
 
     function dato_repetido($datos, $jefe)
         {

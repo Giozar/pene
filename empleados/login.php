@@ -10,7 +10,7 @@
 
     //variable que auntentifica si el usuario entra o inicia sesión// al principio es falso
     $autenticar = false;
-    $nombre;//<----variable nueva creada
+    $nombre;$empleado;//<----variable nueva creada
 
     //se se mandoa el formulario hace lo siguiente
         if (isset($_POST['btn'])) {
@@ -39,9 +39,11 @@
                     session_start();
                     //se guarda el nombre del usuario
                     while ($datos = $resultado->fetch(PDO::FETCH_ASSOC)) { 
-                        $nombre = $datos['nombre']; 
+                        $nombre = $datos['nombre'];
+                        $empleado = $datos['tipo_empleado']; 
                     }
                     $_SESSION['usuario'] = $nombre;
+                    $_SESSION['tipo_empleado'] = $nombre;
 
                     //autentifica que el usuario inicie sesion y es verdadero
                     $autenticar = true;

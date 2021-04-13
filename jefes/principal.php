@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Principal jefe</title>
 </head>
 <body>
     <?php
-        //indica que el usuario inicio sesion
+        //se llama al metodo sesion
         session_start();
         //si el usuario no se encontro
         if (!isset($_SESSION['usuario']) && !isset($_SESSION['tipo_jefe']) ) {
             //lo redirecciona a iniciar sesion
-            header('Location:login.php');
+            header('Location:formulario_login.html');
         } 
         ?>
 
@@ -38,15 +38,22 @@
             <ul>
                 <li>
                     <p>Control de usuarios</p>
-                </li>
-                <li>
-                    <p>Zonas</p>
-                </li>
-                <li>
-                    <p>General</p>
+                    <!-- tendras una opcion de filtrado, ya sea en orden alfabetico o por zona etc -->
+                    <!-- modificar datos -->
+                    <!-- mandar resultados y mesnajes -->
                 </li>
                 <li>
                     <a href="control_empleado/formulario_empleado.php">Registro de empleados</a>
+                </li>
+                <li>
+                    <a href="formulario_registro.php">Registrar encargados</a>
+                </li>
+                <li>
+                    <p>Comunicacion</p>
+                    <!-- especie de mensajeria -->
+                </li>
+                <li>
+                    <p>Ver actividad por zona</p>
                 </li>
             </ul>
 
